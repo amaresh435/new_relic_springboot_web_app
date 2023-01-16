@@ -21,7 +21,10 @@ ENV JAVA_OPTS="$JAVA_OPTS -Dnewrelic.config.app_name='my-application'"
 ENV NEW_RELIC_LICENSE_KEY="license_key"
 # Config to include the agent logs in Docker's stdout logging
 ENV JAVA_OPTS="$JAVA_OPTS -Dnewrelic.config.log_file_name=STDOUT"
+ADD ./run.sh /app/run.sh
+RUN chmod a+x /app/run.sh
 EXPOSE 8089
+CMD /app/run.sh
 #CMD ["catalina.sh", "run"]
 
 FROM openjdk:8
