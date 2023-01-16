@@ -30,8 +30,8 @@ ADD newrelic.yml  /app
 ENV NEW_RELIC_APP_NAME="my_application"
 ENV NEW_RELIC_LICENSE_KEY="license_key"
 ENV NEW_RELIC_LOG_FILE_NAME="STDOUT"
+EXPOSE 8080:8080
 ENTRYPOINT ["java","-javaagent:/app/newrelic.jar","-jar","/app/my-application.jar"]
 #ADD ./run.sh /run.sh
-RUN chmod a+x /app/run.sh
-EXPOSE 8080:8080
-CMD /app/run.sh
+#RUN chmod a+x /app/run.sh
+#CMD /app/run.sh
